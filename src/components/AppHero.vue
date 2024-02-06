@@ -1,6 +1,8 @@
 <template>
     <!-- html componente -->
-    
+    <figure>
+        <img :src="getImagePath(imageName)" alt="">
+    </figure>
 </template>
 
 
@@ -10,7 +12,16 @@
 export default {
     name: 'AppHero',
 
-    
+    data() {
+        return {
+            imageName: 'Vue+Vite.jpg'
+        }
+    },
+    methods: {
+        getImagePath(img) {
+            return new URL(`../assets/${img}`, import.meta.url).href
+        }
+    }
 }
 </script>
 
